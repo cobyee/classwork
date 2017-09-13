@@ -15,10 +15,22 @@ public class CodingConventions {
 	 * therefore the name of a constructor must always
 	 *  match the name of the class
 	 */
-	public CodingConventions(){
+	public CodingConventions(String name, int index){
 		//In Java, fields are instantiated in a constructor
-		name = "Mr. Nockles";
-		description = " is a teacher";
+		
+		//there is a local variable called 'name' and a field called 'name'
+		//the field persists, but the local variable data is destroyed at the end of this method
+		//distinguish the field by using the reserved word "this"
+		
+		this.name = name;
+		//static reference begins with a class name
+		description = IntroMain.DESCRIPTIONS[index];
+	}
+	
+	public void doStuff() {
+		//static method call
+		System.out.println(name + description);//use a space between your operations
+		System.out.print("The square root of 12 is " + Math.sqrt(12));
 	}
 	
 }
