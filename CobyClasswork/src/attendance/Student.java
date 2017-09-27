@@ -27,8 +27,8 @@ public class Student implements Attendee{
 	}
 
 	public boolean mathces(String first, String last) {
-		if(first.equals(firstName)) {
-			if(last.equals(lastName))
+		if(first.toLowerCase().equals(firstName.toLowerCase())) {
+			if(last.toLowerCase().equals(lastName.toLowerCase()))
 			{
 				return true;
 			}
@@ -37,7 +37,7 @@ public class Student implements Attendee{
 	}
 
 	public boolean matches(String last) {
-		if(last.equals(lastName)) {
+		if(last.toLowerCase().equals(lastName.toLowerCase())) {
 			return true;
 		}
 		return false;
