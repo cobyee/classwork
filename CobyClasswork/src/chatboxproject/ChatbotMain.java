@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class ChatbotMain {
 
 	public static Chatbot chatbot = new Chatbot();
-	
+	//static means independent of instances. This chat bot represents the program itself, when the program runs if you want to access to
+	//state of the program then you need to put a handle on it. You need to put an identifier on it so the identifier is the chat bot.
 	
 	public static void main(String[] args) {
 		chatbot.startTalking();
@@ -75,57 +76,57 @@ public class ChatbotMain {
 	  }
 	  
 	  public static void multiLinePrint(String s){
-	    String printString = "";
-	 int cutoff = 25;
-	 //this while loop last as long as there are words left in the original String
-	 while(s.length() > 0){
+		  String printString = "";
+		  int cutoff = 55;
+		  //this while loop last as long as there are words left in the original String
+		  while(s.length() > 0){
 
-	 String currentCut = "";
-	 String nextWord = "";
+			  String currentCut = "";
+			  String nextWord = "";
 
-	 //while the current cut is still less than the line length 
-	 //AND there are still words left to add
-	 while(currentCut.length()+nextWord.length() < cutoff && s.length() > 0){
+			  //while the current cut is still less than the line length 
+			  //AND there are still words left to add
+			  while(currentCut.length()+nextWord.length() < cutoff && s.length() > 0){
 
-	 //add the next word
-	 currentCut += nextWord;
+				  //add the next word
+				  currentCut += nextWord;
 	 
-	 //remove the word that was added from the original String
-	 s = s.substring(nextWord.length());
+				  //remove the word that was added from the original String
+				  s = s.substring(nextWord.length());
 	 
-	 //identify the following word, exclude the space
-	 int endOfWord = s.indexOf(" ");
+				  //identify the following word, exclude the space
+				  int endOfWord = s.indexOf(" ");
 
-	 //if there are no more spaces, this is the last word, so add the whole thing
-	 if(endOfWord == -1) {
-	 endOfWord = s.length()-1;//subtract 1 because index of last letter is one les than length
-	 }
+				  //if there are no more spaces, this is the last word, so add the whole thing
+				  if(endOfWord == -1) {
+					  endOfWord = s.length()-1;//subtract 1 because index of last letter is one les than length
+				  }
 
-	 //the next word should include the space
-	 nextWord = s.substring(0,endOfWord+1);
-	 }
+				  //the next word should include the space
+				  nextWord = s.substring(0,endOfWord+1);
+			  }
 
-	 printString +=currentCut+"\n";
+			  printString +=currentCut+"\n";
 
-	 }
-	 System.out.print(printString);
+		  }
+		  System.out.print(printString);
 	  }
 
 	 public static int getIntegerInput() {
-	 print("Please enter an integer.");
-	 String integerString = getInput();
-	 boolean isInteger = false;
-	 int value = 0;
-	 while(!isInteger){
-	 try{
-	 value = Integer.parseInt(integerString);
-	 //will not continue if an error above is thrown
-	 isInteger = true;//exits loop if entry is valid
-	 }catch(NumberFormatException e){
-	 print("You must enter an integer. You better try again.");
-	 integerString = getInput();
-	 }
-	 }
-	 return value;
+		 print("Please enter an integer.");
+		 String integerString = getInput();
+		 boolean isInteger = false;
+		 int value = 0;
+		 while(!isInteger){
+			 try{
+				 value = Integer.parseInt(integerString);
+				 //will not continue if an error above is thrown
+				 isInteger = true;//exits loop if entry is valid
+			 }catch(NumberFormatException e){
+				 print("You must enter an integer. You better try again.");
+				 integerString = getInput();
+			 }
+		 }
+		 return value;
 	 }
 }
