@@ -59,12 +59,24 @@ public class ChatbotMain {
 	    }
 	  }
 	  
-	  public static boolean noNegations(String s, int psn){
-		  if(psn==0) {
-			  return true;
-		  }
-		  return s.substring(psn-4,psn-1).equals("no") || s.substring(psn-3,psn-1).equals("not");
-	  }
+	  public static boolean noNegations(String s, int pos) {
+			
+			if(pos == 0 || pos < 3)
+			{
+				return true;
+			}
+			else
+			{
+				if(pos < 4)
+				{
+					return !(s.substring(pos - 3, pos - 1).equalsIgnoreCase("no"));
+				}
+				else
+				{
+					return !(s.substring(pos - 3, pos - 1).equalsIgnoreCase("no") || s.substring(pos - 4, pos - 1).equalsIgnoreCase("not"));
+				}
+			}
+		}
 	  
 	  
 	  public static String getInput(){
