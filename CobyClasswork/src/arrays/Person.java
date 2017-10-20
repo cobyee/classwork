@@ -14,6 +14,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Borough home;
+	private String nickname;
 	private Hobby hobby;
 	private Person[] friends;
 	
@@ -21,6 +22,7 @@ public class Person {
 		this.firstName = first;
 		this.lastName = last;
 		this.home = home;
+		this.nickname = createNickname(firstName);
 		this.hobby = Hobby.randomHobby();
 		friends = new Person[3];
 	}
@@ -58,12 +60,15 @@ public class Person {
 			if(this.hobby == q.hobby) {
 				return q;
 			}
-			if(p.getClass() == this.getClass()) {
+			if (this.getClass() == p.getClass()) {
 				return p;
 			}
 		}
 		if(q.getClass() == this.getClass()) {
 			return q;
+		}
+		if(p.getClass() == this.getClass()) {
+			return p;
 		}
 		//if none of these are true, just take p
 		return p;
@@ -78,6 +83,38 @@ public class Person {
 		}
 	}
 	
+	public static String createNickname(String name) {
+		String nickname = "";
+		int secondVowelPsn = findSecond(name);
+		nickname = name.substring(0,secondVowelPsn);
+		return nickname;
+	}
+	
+	private static int findSecond(String word) {
+		boolean foundVowel = false;
+		word = word.toLowerCase();
+		int index = word.length();
+		for(int i = 0; i < word.length(); i++) {
+			if(word.substring(i, i+1).equals("a") || word.substring(i, i+1).equals("e") || word.substring(i, i+1).equals("i") ||word.substring(i, i+1).equals("o") || word.substring(i, i+1).equals("u")) {
+				if(!foundVowel) {
+					foundVowel = true;
+				}else {
+					return i;
+				}
+			}
+		}
+		return index;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		nickname = createNickname(firstName);
+	}
+
 	/**
 	 * Moves all Person in friends back one index and puts p at index 0
 	 * @param p
@@ -92,7 +129,7 @@ public class Person {
 	}
 	
 	public String toString() {
-		return "My name is " + firstName + " " + lastName + " and I live in " + home + ".";
+		return "My name is " + firstName + " " + lastName + " and I live in " + home + ". Call me " + nickname + ".";
 	}
 	
 }
