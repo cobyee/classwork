@@ -198,6 +198,5 @@ public class CaveRoom {
 	public Door getDoor(int direction) {
 		return doors[direction];
 	}
-
 	
 }

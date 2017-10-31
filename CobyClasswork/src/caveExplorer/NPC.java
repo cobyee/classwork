@@ -23,5 +23,4 @@ public class NPC {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

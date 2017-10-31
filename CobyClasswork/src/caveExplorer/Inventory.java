@@ -49,5 +49,4 @@ public class Inventory {
 		return map;
 //		return "You have nothing in your inventory.";
 	}
-
 }
