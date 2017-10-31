@@ -155,7 +155,7 @@ public class CaveRoom {
 	public static void setUpCaves() {
 		//ALL OF THIS CODE CAN BE CHANGED
 		//1. Decide how big your caves should be
-		CaveExplorer.caves = new CaveRoom[5][5];
+		CaveExplorer.caves = new CaveRoom[6][6];
 		//2. Populate with caves and a default description: hint: when starting, use coordinates (helps debugging)
 		for(int row = 0; row < CaveExplorer.caves.length; row++) {
 			//PLEASE PAY ATTENTION TO THE DIFFERENCE:
@@ -172,7 +172,8 @@ public class CaveRoom {
 		//5. Set up doors
 		CaveRoom[][] c = CaveExplorer.caves;
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
-		
+		c[0][1].setConnection(EAST, c[0][2], new Door());
+		c[1][1].setConnection(SOUTH, c[2][1], new Door());
 	}
 	
 	public String getDescription() {
