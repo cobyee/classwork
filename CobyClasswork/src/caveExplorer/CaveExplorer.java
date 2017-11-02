@@ -26,7 +26,7 @@ class CaveExplorer {
 			print(currentRoom.getDescription());
 			print("What would you like to do?");
 			String input = in.nextLine();
-			currentRoom.interpretInput(input);
+			currentRoom.interpretInput(input);                                                 
 		}
 	}
 	

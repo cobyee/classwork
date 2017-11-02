@@ -3,6 +3,7 @@ package caveExplorer;
 public class Inventory {
 
 	private String map;
+	private int hp = 100;
 	
 	public Inventory() {
 		updateMap();
