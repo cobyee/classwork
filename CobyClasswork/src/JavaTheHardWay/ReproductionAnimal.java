@@ -1,14 +1,14 @@
 package JavaTheHardWay;
 
-public class ReproductionAnimal extends RoamingAnimal(){
+public class ReproductionAnimal extends RoamingAnimal() {
 
 	private int maxLitter;
 	
 	public static void main(String[] args) {
-		habitat h = new habitat(3);
+		Habitat h = new Habitat(3);
 		ReproductionAnimal animal1 = new ReproductionAnimal(h);
 		ReproductionAnimal animal2 = new ReproductionAnimal(h);
-		ReproducitonAnimal youngAnimal = animal1.getOffSpring(animal2);
+		ReproductionAnimal youngAnimal = animal1.getOffspring(animal2);
 		while(youngAnimal == null) {
 			animal2 = new ReproductionAnimal(h);
 			youngAnimal = animal1.getOffspring(animal2);
@@ -39,7 +39,7 @@ public class ReproductionAnimal extends RoamingAnimal(){
 		int i = 0;
 		while(i < habitat.getAnimals().length) {
 			Animal target = habitat.getAnimals()[i];
-			if(target instanceof ReproductionAnimal && ((ReprodcutionAnimal) target).getSex()!=getSex() && !target.hasMated()) {
+			if(target instanceof ReproductionAnimal && ((ReproductionAnimal) target).getSex()!=getSex() && !target.hasMated()) {
 				Animal baby = getOffspring((ReproductionAnimal)target);
 				if(baby != null) {
 					int litterSize = (int)(Math.random()* maxLitter);
