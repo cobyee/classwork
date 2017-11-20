@@ -1,6 +1,6 @@
 package JavaTheHardWay;
 
-public class ReproductionAnimal extends RoamingAnimal() {
+public class ReproductionAnimal extends RoamingAnimal {
 
 	private int maxLitter;
 	
