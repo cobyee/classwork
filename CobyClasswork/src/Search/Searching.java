@@ -80,16 +80,22 @@ public class Searching {
 	}
 	
 	public static int binarySearch(int[] searchThis, int startIndex, int endIndex, int target) {
-		int midpoint = (int)((searchThis[startIndex] + searchThis[endIndex])/2);
-		if(midpoint == target) {
+		int midpoint = (int)(startIndex + endIndex)/2;
+		//delay();
+		if(searchThis[midpoint] == target) {
 			return midpoint;
 		} else {
-			if(target > midpoint) {
-				return binarySearch(searchThis, midpoint, searchThis.length -1, target);
-			}else {
-				return binarySearch(searchThis, 0, midpoint, target);
+			if(startIndex + 1 == endIndex || startIndex -1 == endIndex) {
+				return -1;
+			}else if(target > searchThis[midpoint] ) {
+				//System.out.println(midpoint);
+				return binarySearch(searchThis, midpoint, endIndex, target);
+			}else if(target < searchThis[midpoint] ){
+				//System.out.println(midpoint);
+				return binarySearch(searchThis, startIndex, midpoint, target);
 			}
 		}
+		return -1;
 	}
 
 	
