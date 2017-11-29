@@ -40,6 +40,10 @@ public class Pokemon {
 		}
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public void attack(Pokemon target, Attack attack){
 		 if(Math.random() < .9){
 			 attack.attack(target);
@@ -47,5 +51,14 @@ public class Pokemon {
 		 }else{
 			 System.out.println("The attack missed");
 		 }
-	 }
+	}
+	
+	public void levelUp(Effect e) {
+		this.level++;
+		e.happens();
+	}
+	
+	public void evolve(Pokemon previousPokemon, String newPokemon) {
+		previousPokemon.setName(newPokemon);
+	}
 }
