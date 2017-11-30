@@ -32,8 +32,9 @@ public class MainBattle {
 		squirtle.levelUp(new Effect() {
 			public void happens() {
 				squirtle.setName("Warturtle");
+				System.out.println("Squirtle has evolved into " + squirtle.name);
 			}
-		};
+		});
 		printScore(squirtle, bulbasaur);
 	}
 
